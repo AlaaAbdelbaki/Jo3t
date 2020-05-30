@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/Background"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:fontFamily="@font/bebas"
+        android:text="Find restaurants\nOrder Meals"
+
+        android:textAlignment="center"
+        android:textColor="#ffffff"
+        android:textSize="60dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="24dp" />
+
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="224dp"
+        android:layout_height="72dp"
+        android:layout_marginBottom="156dp"
+        android:background="@drawable/button"
+        android:fontFamily="@font/bebas"
+        android:letterSpacing="1"
+        android:shadowDy="3"
+        android:shadowRadius="20"
+        android:text="Login"
+        android:textColor="#ffffff"
+        android:textSize="40dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:layout_width="224dp"
+        android:layout_height="72dp"
+        android:layout_marginBottom="64dp"
+        android:background="@drawable/empty_button"
+        android:fontFamily="@font/bebas"
+        android:letterSpacing="1"
+        android:shadowDy="3"
+        android:shadowRadius="20"
+        android:text="Signup"
+        android:textColor="@color/colorPrimary"
+        android:textSize="40dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>

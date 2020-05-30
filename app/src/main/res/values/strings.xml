@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Jo3t</string>
+    <string name="terms">I have read and accept all <u>terms and conditions</u></string>
 </resources>
