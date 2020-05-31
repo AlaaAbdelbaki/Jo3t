@@ -12,6 +12,7 @@ public class SignupActivity extends AppCompatActivity {
 
     private Button signup;
     private TextView login;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,9 +27,17 @@ public class SignupActivity extends AppCompatActivity {
                 loadLogin();
             }
         });
+        signup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                loadLogin();
+            }
+        });
+
     }
-    public void loadLogin(){
-        Intent intent = new Intent(this,LoginActivity.class);
+
+    public void loadLogin() {
+        Intent intent = new Intent(this, LoginActivity.class);
         startActivity(intent);
     }
 }
