@@ -3,6 +3,7 @@ package com.alaaapps.jo3t;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 public class MainActivity extends AppCompatActivity {
@@ -12,7 +13,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Toolbar toolbar= findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+        Intent intent = new Intent(this,FirstActivity.class);
+        startActivity(intent);
+//        Toolbar toolbar= findViewById(R.id.toolbar);
+//        setSupportActionBar(toolbar);
     }
 }

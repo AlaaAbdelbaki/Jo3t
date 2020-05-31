@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/Background"
+    android:background="@drawable/background"
     android:orientation="vertical">
 
 
@@ -24,13 +24,13 @@
 
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/login_btn"
         android:layout_width="224dp"
         android:layout_height="72dp"
         android:layout_marginBottom="156dp"
         android:background="@drawable/button"
         android:fontFamily="@font/bebas"
-        android:letterSpacing="1"
+
         android:shadowDy="3"
         android:shadowRadius="20"
         android:text="Login"
@@ -42,12 +42,13 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
+        android:id="@+id/signup_btn"
         android:layout_width="224dp"
         android:layout_height="72dp"
         android:layout_marginBottom="64dp"
         android:background="@drawable/empty_button"
         android:fontFamily="@font/bebas"
-        android:letterSpacing="1"
+
         android:shadowDy="3"
         android:shadowRadius="20"
         android:text="Signup"
