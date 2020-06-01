@@ -7,8 +7,8 @@
     android:layout_height="match_parent"
     android:background="#E4E6E3"
     android:fitsSystemWindows="true"
-    tools:context=".HomeActivity"
-    tools:openDrawer="end">
+    tools:context=".BaseActivity"
+    tools:openDrawer="start">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -19,15 +19,27 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
+            android:layout_gravity="center"
             android:background="@color/colorPrimary"
             android:elevation="4dp"
             android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-            app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:foregroundGravity="center"
+                android:paddingTop="5dp"
+                android:paddingRight="62dp"
+                android:src="@drawable/jo3t" />
+        </androidx.appcompat.widget.Toolbar>
+
 
         <FrameLayout
             android:id="@+id/fargment_container"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
+
     </LinearLayout>
 
     <com.google.android.material.navigation.NavigationView

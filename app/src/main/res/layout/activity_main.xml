@@ -24,6 +24,7 @@
             android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
 
+        
         <FrameLayout
             android:id="@+id/fargment_container"
             android:layout_width="match_parent"

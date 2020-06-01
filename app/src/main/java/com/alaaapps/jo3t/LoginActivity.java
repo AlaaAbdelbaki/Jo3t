@@ -63,10 +63,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     public void openActivity() {
-        Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        startActivity(intent);
+        getSupportFragmentManager().beginTransaction().replace(R.id.fargment_container,new HomeFragment()).commit();
     }
 
     public void openSignUp() {
