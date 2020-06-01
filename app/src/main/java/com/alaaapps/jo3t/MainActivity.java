@@ -13,7 +13,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         String username;
         String password;
-
         SharedPreferences sp = this.getSharedPreferences("Login", MODE_PRIVATE);
         username = sp.getString("login", null);
         password = sp.getString("pwd", null);
