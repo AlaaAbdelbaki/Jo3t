@@ -10,14 +10,23 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 
 import com.google.android.material.navigation.NavigationView;
+
+import org.w3c.dom.Text;
 
 public class BaseActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private DrawerLayout drawer;
     private Intent intent;
+    SharedPreferences sp;
+    View mHeaderView;
+    String username;
+    TextView welcome ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,15 +35,25 @@ public class BaseActivity extends AppCompatActivity implements NavigationView.On
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        sp = this.getSharedPreferences("Login", MODE_PRIVATE);
+        username = sp.getString("login", null);
+
+
+
         drawer = findViewById(R.id.drawer_layout);
-        NavigationView navigationView = findViewById(R.id.nav_view);
+        NavigationView navigationView = findViewById(R.id.nav_view)
+//      Setting the username in the welcome back header in drawer menu
+        mHeaderView =  navigationView.getHeaderView(0);
+        welcome =  (TextView) mHeaderView.findViewById(R.id.welcome_msg);
+        welcome.setText("Welcome back "+username);
+
         navigationView.setNavigationItemSelectedListener(this);
 
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar,
                 R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new HomeFragment()).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HomeFragment()).commit();
 
     }
 
@@ -57,11 +76,14 @@ public class BaseActivity extends AppCompatActivity implements NavigationView.On
                 startActivity(intent);
                 break;
             case R.id.notifications:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new NotificationFragment()).addToBackStack("prev").commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new NotificationFragment()).addToBackStack("prev").commit();
                 break;
             case R.id.home:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new HomeFragment()).addToBackStack("prev").commit();
-
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HomeFragment()).addToBackStack("prev").commit();
+                break;
+            case R.id.nav_map:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new RestaurantFragment()).addToBackStack("prev").commit();
+                break;
         }
         drawer.closeDrawer(GravityCompat.START);
         return true;
@@ -75,7 +97,6 @@ public class BaseActivity extends AppCompatActivity implements NavigationView.On
             super.onBackPressed();
         }
     }
-
 
 
 }
