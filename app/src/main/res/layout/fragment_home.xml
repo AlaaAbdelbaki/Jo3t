@@ -1,36 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="match_parent">
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="15dp"
-    >
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Recent orders :"
-        android:fontFamily="@font/regular"
-        android:textSize="35dp"/>
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/background_color"
+        android:layout_height="match_parent"
         android:orientation="vertical"
-        android:elevation="10dp"
-        android:layout_margin="15dp">
-        <TableLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" >
-            <TableRow android:layout_margin="5dp" android:alpha="0.5">
-                <TextView android:text="ID" android:paddingRight="10dp" android:paddingLeft="10dp"  />
-                <TextView android:text="Restaurant" android:paddingRight="10dp" android:paddingLeft="10dp"/>
-                <TextView android:text="Order Details" android:paddingRight="10dp" android:paddingLeft="10dp"/>
-                <TextView android:text="Order Price" android:paddingRight="10dp" android:paddingLeft="10dp"/>
-            </TableRow>
-        </TableLayout>
+        android:padding="15dp">
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/regular"
+            android:text="Recent orders :"
+            android:textSize="35dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:background="@drawable/background_color"
+            android:elevation="10dp"
+            android:orientation="vertical">
+
+            <TableLayout
+                android:layout_width="match_parent"
+                android:stretchColumns="*"
+                android:layout_height="wrap_content">
+
+                <TableRow
+                    android:layout_margin="5dp"
+                    android:alpha="0.5">
+                    <TextView
+                        android:autoSizeTextType="uniform"
+                        android:text="ID" />
+                    <TextView
+                        android:autoSizeTextType="uniform"
+                        android:text="Restaurant" />
+                    <TextView
+                        android:autoSizeTextType="uniform"
+                        android:text="Order Details" />
+                    <TextView
+                        android:autoSizeTextType="uniform"
+                        android:text="Order Price" />
+                </TableRow>
+            </TableLayout>
+
+        </LinearLayout>
     </LinearLayout>
-</LinearLayout>
 </RelativeLayout>

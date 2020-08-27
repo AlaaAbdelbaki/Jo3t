@@ -1,6 +1,5 @@
 package com.alaaapps.jo3t;
 
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
