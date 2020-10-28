@@ -20,4 +20,5 @@
     </string>
     <string name="attachment_summary_off">Only download attachments when manually requested</string>
     <string name="hint">City</string>
+    <string name="smallPrice"><sup>DT</sup></string>
 </resources>

@@ -25,8 +25,11 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MapStyleOptions;
+import com.google.android.gms.maps.model.Marker;
+import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -61,14 +64,22 @@ public class RestaurantFragment extends Fragment implements OnMapReadyCallback, 
         googleMap.setMapStyle(mapStyleOptions);
         getPos();
         if(latitude!=0.0d && longitude!=0.0d ){
+            googleMap.clear();
             googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(latitude,longitude), 15));
+            googleMap.addMarker(new MarkerOptions().position(new LatLng(latitude,longitude)));
+            googleMap.addCircle(drawCircle(latitude,longitude,500));
         }
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 getPos();
                 if(latitude!=0.0d && longitude!=0.0d ){
+                    googleMap.clear();
+                    Log.d("is Cleared ? ","Cleared !");
                     googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(latitude,longitude), 15));
+                    googleMap.addMarker(new MarkerOptions().position(new LatLng(latitude,longitude)));
+                    googleMap.addCircle(drawCircle(latitude,longitude,500));
+
                 }
             }
         });
@@ -126,15 +137,10 @@ public class RestaurantFragment extends Fragment implements OnMapReadyCallback, 
         }
         if(location!=null){
             Log.d("Location","Not null");
-        }else{
-            Log.d("Location","null");
-        }
-
-        if(location !=null){
             longitude = location.getLongitude();
             latitude = location.getLatitude();
-        }
-        else {
+        }else{
+            Log.d("Location","null");
             Toast
                     .makeText(getActivity(),
                             "Unknown error!",
@@ -144,6 +150,15 @@ public class RestaurantFragment extends Fragment implements OnMapReadyCallback, 
         }
         Log.d("POS", "Lat= " + latitude + " Long= " + longitude);
 
+    }
+
+    private CircleOptions drawCircle(double latitude,double longitude, double radius){
+        CircleOptions circle = new CircleOptions()
+                .center(new LatLng(latitude,longitude))
+                .radius(radius)
+                .strokeWidth(1.0f)
+                .fillColor(R.color.colorPrimary);
+        return circle;
     }
 
 
